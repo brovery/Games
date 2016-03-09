@@ -1,11 +1,35 @@
-<div class="alert alert-success">
-    <h3>basicController as bc</h3>
+<div class="alert alert-success row">
+    <h3>Games</h3>
 
-    <label for="numberOfDice">Select a number of dice to roll</label>
-    <input id="numberOfDice" type="number" ng-model="bc.numberOfDice"/>
-    <label for="numberOfSides">How many sides are on the dice? (4, 6, 10, 30...)</label>
-    <input id="numberOfSides" type="number" ng-model="bc.numberOfSides"/>
-    <button class="btn btn-primary" ng-click="bc.roll()">Roll Dice</button>
+    <div class="bordered">
+        <h4><strong>Dice Game</strong></h4>
+        <label for="numberOfDice">Select a number of dice to roll</label>
+        <input id="numberOfDice" type="number" ng-model="bc.numberOfDice"/>
+        <label for="numberOfSides">How many sides are on the dice? (4, 6, 10, 30...)</label>
+        <input id="numberOfSides" type="number" ng-model="bc.numberOfSides"/>
+        <button class="btn btn-primary" ng-click="bc.roll()">Roll Dice</button>
+    </div>
+
+    <div class="bordered">
+        <h4><strong>Card Game</strong></h4>
+        <p>Pick a series of cards, the sum of which is your total. Number cards are face value, Jack = 11, Q = 12, K = 13. Joker is 30, if used.</p>
+
+        <label for="numberOfCardsDrawn">How many cards will be drawn?</label>
+        <input id="numberOfCardsDrawn" type="number" ng-model="bc.numberOfCardsDrawn"/>
+
+        <label class="radio-inline">
+            <input id="AceValue1" type="radio" name="aceOptions" value="20" ng-model="bc.aceVal"/>
+            Ace = 20
+        </label>
+        <label class="radio-inline">
+            <input id="AceValue2" type="radio" name="aceOptions" value="1" ng-model="bc.aceVal"/>
+            Ace = 1
+        </label>
+
+        <button class="btn btn-primary" ng-click="bc.shuffle()">Shuffle and draw!</button>
+
+
+    </div>
 
 
 </div>
