@@ -1,5 +1,9 @@
 <div class="alert alert-success row">
     <h3>Games</h3>
+    <label for="minimum" data-toggle="tooltip" title="Minimum outcome. This will override the results of any game played. 0 = no minimum.">Minimum</label>
+    <input id="minimum" type="number" ng-model="bc.minimum"/>
+    <label for="maximum" data-toggle="tooltip" title="Maximum outcome. This will override the results of any game played. 0 = no maximum.">Maximum</label>
+    <input type="number" id="maximum" ng-model="bc.maximum"/>
 
     <div class="bordered">
         <h4><strong>Dice Game</strong></h4>
@@ -7,6 +11,14 @@
         <input id="numberOfDice" type="number" ng-model="bc.numberOfDice"/>
         <label for="numberOfSides">How many sides are on the dice? (4, 6, 10, 30...)</label>
         <input id="numberOfSides" type="number" ng-model="bc.numberOfSides"/>
+        Variations:
+        <div id="diceVariations">
+            Location for variations on the dice game.
+            <ul>
+                <li>Multiplier dice</li>
+                <li>Unit dice (determines if each spot equals hours, days, weeks, or months)</li>
+            </ul>
+        </div>
         <button class="btn btn-primary" ng-click="bc.roll()">Roll Dice</button>
     </div>
 
@@ -25,9 +37,48 @@
             <input id="AceValue2" type="radio" name="aceOptions" value="1" ng-model="bc.aceVal"/>
             Ace = 1
         </label>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" ng-model="bc.useJoker" value="true"/>Use Jokers? (worth 30)
+            </label>
+        </div>
+        <div class="checkbox">
+            <label data-toggle="tooltip" title="This adds the drawn card back into the deck and reshuffles prior to drawing the next card. Thus, you can end up drawing 5 Jokers in a row.">
+                <input type="checkbox" ng-model="bc.reShuffle" value="true"/>Re-shuffle deck after every draw?
+            </label>
+        </div>
+        <br/>
+        Variations:
+
+        <div id="cardVariations">
+            Location for variations on the above game.
+            <ul>
+                <li>Multipliers by suit</li>
+                <li>Multipliers by card</li>
+                <li>Wild cards</li>
+            </ul>
+        </div>
 
         <button class="btn btn-primary" ng-click="bc.shuffle()">Shuffle and draw!</button>
+    </div>
 
+    <div class="bordered">
+        <h4><strong>Pick a delay</strong></h4>
+    </div>
+
+    <div class="bordered">
+        <h4><strong>Pick a Date</strong></h4>
+    </div>
+
+    <div class="bordered">
+        <h4><strong>Beads</strong></h4>
+        Pick a bead of a specific color, and you are rewarded with the corresponding activity!
+
+    </div>
+
+    <div class="bordered">
+        <h4><strong>Weight Loss</strong></h4>
+        You can play by either <span data-toggle="tooltip" title="Earn rewards for accumulating points.">Points</span> or by <span title="Earn rewards for pounds lost.">Pounds</span>.
 
     </div>
 
